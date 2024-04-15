@@ -1,0 +1,21 @@
+﻿ @model IEnumerable<CoreAndFood.Data.Models.Icerik>
+
+<div class="container-xxl py-5">
+    <div class="container py-5">
+        <div class="row g-4">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item p-4">
+                        <div class="overflow-hidden mb-4">
+                            <img class="img-fluid" style="width:250px; height:200px" title="" alt="" src="~/resimler/@item.ImageURL">
+                        </div>
+                        <h4 class="mb-3">@item.IcerikName</h4>
+                        <p style="color:red">@item.IcerikName</p><p>Tarifin Devamı İçin</p>
+                        <a class="btn-slide mt-2" href="/Icerik/BlogDetails/@item.IcerikId/"><i class="fa fa-arrow-right"></i><span>Devamı</span></a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

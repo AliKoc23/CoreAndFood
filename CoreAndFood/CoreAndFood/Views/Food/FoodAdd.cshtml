@@ -1,0 +1,52 @@
+﻿@model CoreAndFood.Data.Models.urunekle;
+@{
+    ViewData["Title"] = "FoodAdd.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h2>Food Add Page</h2>
+
+<form class="form-group" action="FoodAdd" asp-controller="Food" method="post" enctype="multipart/form-data"> 
+    @Html.Label("Food Name")
+    
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    
+
+    <br />
+    
+    @Html.Label("Description")
+   
+    @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+    
+
+    <br />
+
+    @Html.Label("Price")
+    
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+    
+
+    <br />
+
+    @Html.Label("ImageURL")
+
+    <input type="file" name="ImageURL"/>
+    
+
+    <br />
+
+    @Html.Label("Stock")
+    
+    @Html.TextBoxFor(x => x.Stock, new { @class = "form-control" })
+    
+    <br />
+
+    @Html.Label("Category")
+    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.v1,new{ @class="form-control"})
+    
+    <br />
+
+    <button class="btn btn-info">Save</button>
+
+</form>

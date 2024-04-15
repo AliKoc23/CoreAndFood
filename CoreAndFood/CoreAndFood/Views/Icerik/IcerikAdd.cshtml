@@ -1,0 +1,41 @@
+﻿@model CoreAndFood.Data.Models.icerikekle;
+@{
+    ViewData["Title"] = "IcerikAdd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<h2>İçerik Ekleme Sayfası </h2>
+
+<form class="form-group" action="IcerikAdd" asp-controller="Icerik" method="post" enctype="multipart/form-data">
+    @Html.Label("Yemek Adı")
+
+    @Html.TextBoxFor(x => x.IcerikName, new { @class = "form-control" })
+
+
+    <br />
+
+    @Html.Label("Malzemeler")
+
+    @Html.TextAreaFor(x => x.IcerikConn, new { @class = "form-control" })
+
+
+    <br />
+
+    @Html.Label("Yapılış")
+
+    @Html.TextBoxFor(x => x.IcerikDescription, new { @class = "form-control" })
+
+
+    <br />
+
+    @Html.Label("ImageURL")
+
+    <input type="file" name="ImageURL" />
+
+    <br />
+  
+
+    <button class="btn btn-info">Save</button>
+
+</form>

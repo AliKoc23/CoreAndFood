@@ -1,0 +1,37 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Web.Common;
+
+@model IPagedList<CoreAndFood.Data.Models.Icerik>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>İçerik</h2>
+<br />
+<table class="table table-bordered">
+
+    <tr>
+        <th>ID</th>
+        <th>Yemek Adı</th>
+        <th>Malzemeler</th>
+        <th>Yapılış</th>
+        <th>Siliniz</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.IcerikId</td>
+            <td>@x.IcerikName</td>
+            <td>@x.IcerikConn</td>
+            <td>@x.IcerikDescription</td>
+            <td><a href="/Icerik/IcerikDelete/@x.IcerikId" class="btn btn-danger">Delete</a></td>
+        </tr>
+    }
+</table>
+
+
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+
+<a href="/Icerik/IcerikAdd/" class="btn btn-primary">New Food</a>
